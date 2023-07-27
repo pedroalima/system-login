@@ -1,10 +1,17 @@
 import "./App.scss";
+import Root from "./components/root";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter(createRoutesFromElements(
+	<Route path="/" element={ <Root /> }>
+	</Route>
+));
 
 function App() {
 	return (
-		<div className="container">
-			<h1>Hello</h1>
-		</div>
+		<>
+			<RouterProvider router={router} />
+		</>
 	);
 }
 
