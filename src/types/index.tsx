@@ -6,8 +6,10 @@ export type PrivateProps = {
 
 export interface AuthContextProps {
     children: ReactNode
+    initUser: string;
 }
 
 export interface AuthContextData {
-    name: string
+    user: string;
+    setUser: (name: string) => void;
 }

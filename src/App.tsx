@@ -17,7 +17,7 @@ const Private = ({ Item }: PrivateProps) => {
 
 function App() {
 	return (
-		<AuthProvider>
+		<AuthProvider initUser={""}>
 			<RouterProvider router={createBrowserRouter(createRoutesFromElements(
 				<Route path="/" element={ <Root /> }>
 					<Route path="/" element={ <SignIn /> } />
