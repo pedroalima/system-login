@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-import { AuthContextProps, AuthContextData } from "../types";
+import { AuthContextProps, AuthContextData } from "../types/Context";
 
 
 export const AuthContext = createContext<AuthContextData | object>({});
