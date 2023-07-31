@@ -2,7 +2,12 @@ import { ButtonProps } from "../../types/components/Button";
 
 function Button({type="button", onClick, text}: ButtonProps) {
 	return (
-		<button type={type} onClick={onClick}>{text}</button>
+		<button 
+			className="btn btn-primary p-button-custom my-3 font-weight-bold"
+			type={type} 
+			onClick={onClick}>
+			{text}
+		</button>
 	);
 }
 
