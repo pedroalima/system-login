@@ -1,6 +1,8 @@
+import { FormEventHandler } from "react";
+
 export interface InputProps {
-    text: string;
+    type: string;
     placeholder: string;
     value: string;
-    onChange: () => void;
+    onChange: FormEventHandler;
 }

@@ -1,9 +1,9 @@
 import { InputProps } from "../../types/components/Input";
 
-export const Input = ({ text, placeholder, value, onChange }: InputProps) => {
+export const Input = ({ type, placeholder, value, onChange }: InputProps) => {
 	return (
 		<input 
-			type={text}
+			type={type}
 			placeholder={placeholder}
 			value={value}
 			onChange={onChange}
