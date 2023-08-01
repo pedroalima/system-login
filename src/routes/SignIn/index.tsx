@@ -10,7 +10,7 @@ import { SignInInputs } from "../../types/routes/SignIn";
 
 const schema = object({
 	email: string().required("This field is required"),
-	password: string().required("This field is required").min(6),
+	password: string().required("This field is required"),
 });
 
 function SignIn() {
@@ -29,30 +29,30 @@ function SignIn() {
 	};
 
 	return (
-		<div className="container-fluid bg-light">
+		<div className="container-fluid bg-light" id="sign-in">
 			<div className="row py-5 vh-100 justify-content-center align-items-center">
-				<div className="col-3 py-5 text-center">
-					<h4 className="text-uppercase text-secondary">System Login</h4>
+				<div className="col-3 py-5">
+					<h4 className="text-uppercase text-secondary text-center">System Login</h4>
 					<form 
-						className="d-flex flex-column p-3 bg-white align-items-around rounded shadow-sm"
+						className="d-flex flex-column p-3 bg-white align-items-around gap rounded shadow-sm"
 						onSubmit={handleSubmit(handleLogin)}
 					>
 						<input 
-							className={"form-control p-input-custom mb-3"}
+							className={"form-control p-input-custom"}
 							type="email"
 							placeholder="E-mail"
 							{...register("email")}
 						/>
-						<span className='text-danger font-weight-bold error'>{errors?.email?.message}</span>
+						<span className='text-danger error'>{errors?.email?.message}</span>
 						<input 
-							className="form-control p-input-custom mb-3"
+							className="form-control p-input-custom"
 							type="password"
 							placeholder="Password"
 							{...register("password")}
 						/>
-						<span className='text-danger font-weight-bold error'>{errors?.password?.message}</span>
+						<span className='text-danger error'>{errors?.password?.message}</span>
 						<Button text="Enter" />
-						<label>
+						<label className="text-center">
 							<Link 
 								className="font-weight-bold" 
 								to="/signup">Sing Up </Link>

@@ -1,7 +1,18 @@
-.p-input-custom {
-    padding: 1.5rem 1rem;
-}
+#sign-in {
+    .p-input-custom {
+        padding: 1.5rem 1rem;
+    }
 
-.p-button-custom {
-    padding: 0.8rem 0;
-}
+    .p-button-custom {
+        padding: 0.8rem 0;
+    }
+
+    .gap {
+        gap: 0.5rem;
+    }
+
+    .error {
+        font-size: 10px;
+    }
+} 
+    
