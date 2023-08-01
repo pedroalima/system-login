@@ -1,7 +1,7 @@
 import { MouseEventHandler } from "react";
 
 export interface ButtonProps {
-    type?: "button";
+    type?: "submit";
     text: string;
-    onClick: MouseEventHandler;
+    onClick?: MouseEventHandler;
 }

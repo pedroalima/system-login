@@ -1,6 +1,6 @@
 import { ButtonProps } from "../../types/components/Button";
 
-function Button({type="button", onClick, text}: ButtonProps) {
+function Button({type="submit", onClick, text}: ButtonProps) {
 	return (
 		<button 
 			className="btn btn-primary p-button-custom my-3 font-weight-bold"
