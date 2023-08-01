@@ -8,7 +8,7 @@ export const AuthProvider = ({ children } : AuthContextProps) => {
 	const [ user, setUser ] = useState("");
 
 	return (
-		<AuthContext.Provider value={{ user, setUser }}>
+		<AuthContext.Provider value={{ user, signed: !user, setUser }}>
 			{children}
 		</AuthContext.Provider>
 	);

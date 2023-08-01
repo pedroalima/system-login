@@ -9,9 +9,10 @@ import Home from "./routes/Home";
 
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
+import { useAuth } from "./hook";
 
 const Private = ({ Item }: PrivateProps) => {
-	const signed = true;
+	const { signed } = useAuth();
 
 	return signed ? <Item /> : <SignIn />;
 };
