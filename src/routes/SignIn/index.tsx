@@ -55,7 +55,7 @@ function SignIn() {
 						<label className="text-center">
 							<Link 
 								className="font-weight-bold" 
-								to="/signup">Sing Up </Link>
+								to="/signup">Sign Up </Link>
 							if you don't have account
 						</label>
 					</form>
