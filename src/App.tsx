@@ -14,7 +14,7 @@ import { useAuth } from "./hook";
 const Private = ({ Item }: PrivateProps) => {
 	const { signed } = useAuth();
 
-	return signed ? <Item /> : <SignIn />;
+	return signed === true ? <Item /> : <SignIn />;
 };
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
 		<AuthProvider>
 			<RouterProvider router={createBrowserRouter(createRoutesFromElements(
 				<Route path="/" element={ <Root /> }>
-					<Route path="/" element={ <SignIn /> } />
 					<Route path="/home" element={ <Private Item={Home} />} />
+					<Route path="/" element={ <SignIn /> } />
 					<Route path="/signup" element={ <SignUp /> } />
 					<Route path="*" element={ <SignIn /> } />
 				</Route>

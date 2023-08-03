@@ -4,7 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { object, ref, string } from "yup";
 
 import Button from "../../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hook";
 
 const schema = object().shape({
 	email: string()
@@ -21,18 +22,19 @@ const schema = object().shape({
 });
 
 function SignUp() {
+	const { signup } = useAuth();
+	const navigate = useNavigate();
 
 	const { 
 		register, 
 		handleSubmit,
 		formState: { errors },
-		reset
 	} = useForm<SignUpInputs>({resolver: yupResolver(schema)});
 
 	const handleUser = (data: SignUpInputs) => {
-		console.log(data);
+		signup(data.email, data.password);
 
-		reset();
+		navigate("/home");
 	};
 
 	return (

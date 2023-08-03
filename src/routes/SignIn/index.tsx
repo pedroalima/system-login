@@ -7,23 +7,28 @@ import Button from "../../components/Button";
 
 import "./index.scss";
 import { SignInInputs } from "../../types/routes/SignIn";
+import { useAuth } from "../../hook";
 
-const schema = object({
-	email: string().required("This field is required"),
-	password: string().required("This field is required"),
+const schema = object().shape({
+	email: string().required("E-mail is a required!"),
+	password: string().required("Password is a required!"),
 });
 
 function SignIn() {
+	const { setUser } = useAuth();
+	const navigate = useNavigate();
+
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<SignInInputs>({resolver: yupResolver(schema)});
 
-	const navigate = useNavigate();
-
 	const handleLogin = (data: SignInInputs) => {
 		if (data.email && data.password) {
+
+			setUser("teste");
+
 			navigate("/home");
 		}
 	};
