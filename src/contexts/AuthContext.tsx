@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 import { AuthContextProps, AuthContextData, User } from "../types/Context";
 
@@ -6,10 +6,6 @@ export const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 
 export const AuthProvider = ({ children } : AuthContextProps) => {
 	const [ user, setUser ] = useState("");
-
-	useEffect(()=> {
-		console.log(user);
-	}, [user]);
 
 	const signup = (email: string, password: string) => {
 		const jsonUserStorage = localStorage.getItem("user");

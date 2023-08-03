@@ -34,7 +34,7 @@ function SignUp() {
 	const handleUser = (data: SignUpInputs) => {
 		signup(data.email, data.password);
 
-		navigate("/home");
+		navigate("/");
 	};
 
 	return (
