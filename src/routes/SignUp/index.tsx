@@ -1,11 +1,13 @@
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { SignUpInputs } from "../../types/routes/SingUp";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, ref, string } from "yup";
 
 import Button from "../../components/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { SignUpInputs } from "../../types/routes/SingUp";
 import { useAuth } from "../../hook";
+// import { validateEmail } from "../../utils/Regex";
+// import { useState } from "react";
 
 const schema = object().shape({
 	email: string()
@@ -24,19 +26,27 @@ const schema = object().shape({
 function SignUp() {
 	const { signup } = useAuth();
 	const navigate = useNavigate();
-
+	// const [ emailError, setEmailError ] = useState(false);
 	const { 
 		register, 
 		handleSubmit,
 		formState: { errors },
 	} = useForm<SignUpInputs>({resolver: yupResolver(schema)});
 
+	// const handleValidate = (email: string) => {
+	// 	if (!validateEmail.test(email)) {
+	// 		setEmailError(true);
+	// 	} else {
+	// 		setEmailError(false);
+	// 	}
+	// };
+
 	const handleUser = (data: SignUpInputs) => {
 		signup(data.email, data.password);
 
 		navigate("/");
 	};
-
+	
 	return (
 		<div className="container-fluid bg-light" id="sign-in">
 			<div className="row py-5 vh-100 justify-content-center align-items-center">
@@ -52,6 +62,7 @@ function SignUp() {
 							placeholder="E-mail"
 							{...register("email")}
 						/>
+						{/* {emailError && <span className='text-danger error'>Insira um email válido</span>} */}
 						<span className='text-danger error'>{errors?.email?.message}</span>
 						<input 
 							className="form-control p-input-custom"
