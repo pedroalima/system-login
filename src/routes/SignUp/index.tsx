@@ -6,18 +6,18 @@ import { object, ref, string } from "yup";
 import Button from "../../components/Button";
 import { SignUpInputs } from "../../types/routes/SingUp";
 import { useAuth } from "../../hook";
-// import { validateEmail } from "../../utils/Regex";
-// import { useState } from "react";
 
 const schema = object().shape({
 	email: string()
-		.required("E-mail is a required!"),
+		.required("E-mail is a required!")
+		.matches(/^[\w\d.]+@[\w]+\.[\w]{3}(\.[\w]{2})?$/, "Invalid e-mail"),
 	confirmEmail: string()
 		.required("E-mail needs to be confirmed!")
 		.oneOf([ref("email")], "E-mail needs to be confirmed correctly!"),
 	password: string()
 		.required("Password is a required!")
-		.min(6),
+		.min(8)
+		.max(20),
 	confirmPassword: string()
 		.required("Password needs to be confirmed!")
 		.oneOf([ref("password")], "The passwords need to be the same!"),
@@ -26,20 +26,11 @@ const schema = object().shape({
 function SignUp() {
 	const { signup } = useAuth();
 	const navigate = useNavigate();
-	// const [ emailError, setEmailError ] = useState(false);
 	const { 
 		register, 
 		handleSubmit,
 		formState: { errors },
 	} = useForm<SignUpInputs>({resolver: yupResolver(schema)});
-
-	// const handleValidate = (email: string) => {
-	// 	if (!validateEmail.test(email)) {
-	// 		setEmailError(true);
-	// 	} else {
-	// 		setEmailError(false);
-	// 	}
-	// };
 
 	const handleUser = (data: SignUpInputs) => {
 		signup(data.email, data.password);
@@ -62,7 +53,6 @@ function SignUp() {
 							placeholder="E-mail"
 							{...register("email")}
 						/>
-						{/* {emailError && <span className='text-danger error'>Insira um email válido</span>} */}
 						<span className='text-danger error'>{errors?.email?.message}</span>
 						<input 
 							className="form-control p-input-custom"
