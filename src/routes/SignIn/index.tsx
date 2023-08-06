@@ -7,7 +7,7 @@ import Button from "../../components/Button";
 
 import "./index.scss";
 import { SignInInputs } from "../../types/routes/SignIn";
-import { useAuth } from "../../hook";
+import { useAuth } from "../../hook/useAuth";
 
 const schema = object().shape({
 	email: string().required("E-mail is a required!"),

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -5,7 +6,8 @@ import { object, ref, string } from "yup";
 
 import Button from "../../components/Button";
 import { SignUpInputs } from "../../types/routes/SingUp";
-import { useAuth } from "../../hook";
+import { useAuth } from "../../hook/useAuth";
+
 
 const schema = object().shape({
 	email: string()
@@ -26,16 +28,27 @@ const schema = object().shape({
 function SignUp() {
 	const { signup } = useAuth();
 	const navigate = useNavigate();
+	const [ statusEmail, setStatusEmail ] = useState<boolean | null>(null);
+	const [ messageEmail, setMessageEmail] = useState("");
 	const { 
-		register, 
+		register,
 		handleSubmit,
 		formState: { errors },
+		reset,
 	} = useForm<SignUpInputs>({resolver: yupResolver(schema)});
 
 	const handleUser = (data: SignUpInputs) => {
-		signup(data.email, data.password);
+		const existingEmail: string | void = signup(data.email, data.password);
 
-		navigate("/");
+		if (typeof existingEmail === "string") {
+			setStatusEmail(true);
+			setMessageEmail(existingEmail);
+		} else {
+			setStatusEmail(false);
+			setMessageEmail("User successfully registered!");
+			reset();
+			setTimeout(() => navigate("/"), 2000);
+		}
 	};
 	
 	return (
@@ -76,6 +89,12 @@ function SignUp() {
 						/>
 						<span className='text-danger error'>{errors?.confirmPassword?.message}</span>
 						<Button text="Sign Up" />
+						{statusEmail === null ? 
+							<div></div> : 
+							statusEmail ?
+								<div className="alert alert-danger" role="alert">{messageEmail}</div> :
+								<div className="alert alert-success" role="alert">{messageEmail}</div>
+						}
 						<label className="text-center">
 							<Link 
 								className="font-weight-bold" 
