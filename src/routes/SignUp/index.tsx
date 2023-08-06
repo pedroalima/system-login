@@ -41,8 +41,8 @@ function SignUp() {
 	return (
 		<div className="container-fluid bg-light" id="sign-in">
 			<div className="row py-5 vh-100 justify-content-center align-items-center">
-				<div className="col-3 py-5">
-					<h4 className="text-uppercase text-secondary text-center">System Login</h4>
+				<div className="col-11 col-sm-8 col-md-6 col-lg-4 col-xl-3 py-5">
+					<h4 className="text-uppercase text-secondary text-center">Sign Up</h4>
 					<form 
 						className="d-flex flex-column p-3 bg-white align-items-around gap rounded shadow-sm"
 						onSubmit={handleSubmit(handleUser)}
