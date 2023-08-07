@@ -92,8 +92,8 @@ function SignUp() {
 						{statusEmail === null ? 
 							<div></div> : 
 							statusEmail ?
-								<div className="alert alert-danger" role="alert">{messageEmail}</div> :
-								<div className="alert alert-success" role="alert">{messageEmail}</div>
+								<div className="alert alert-danger text-center" role="alert">{messageEmail}</div> :
+								<div className="alert alert-success text-center" role="alert">{messageEmail}</div>
 						}
 						<label className="text-center">
 							<Link 

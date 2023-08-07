@@ -61,7 +61,7 @@ function SignIn() {
 						<span className='text-danger error'>{errors?.password?.message}</span>
 						<Button text="Enter" />
 						{statusEmail &&
-							<div className="alert alert-danger" role="alert">{statusEmail}</div>}
+							<div className="alert alert-danger text-center" role="alert">{statusEmail}</div>}
 						<label className="text-center">
 							<Link 
 								className="font-weight-bold" 
