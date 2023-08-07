@@ -7,7 +7,7 @@ export type PrivateProps = {
 export interface AuthContextData {
     signed: string | boolean;
     user: object;
-    setUser: (user: boolean) => void;
+    setUser: (object: object) => void;
     signin: (email: string, password: string) => void;
     signup: (email: string, password: string) => void;
 }

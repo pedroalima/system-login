@@ -8,7 +8,7 @@ function Home() {
 	const { setUser } = useAuth();
 
 	const handleLogout = () => {
-		setUser("");
+		setUser({});
 		navigate("/");
 	};
 	
