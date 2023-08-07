@@ -4,10 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
 
 import Button from "../../components/Button";
-
-import "./index.scss";
 import { SignInInputs } from "../../types/routes/SignIn";
 import { useAuth } from "../../hook/useAuth";
+import "./index.scss";
+import { useState } from "react";
 
 const schema = object().shape({
 	email: string().required("E-mail is a required!"),
@@ -15,8 +15,9 @@ const schema = object().shape({
 });
 
 function SignIn() {
-	const { setUser } = useAuth();
+	const { signin } = useAuth();
 	const navigate = useNavigate();
+	const [ statusEmail, setStatusEmail ] = useState("");
 
 	const {
 		register,
@@ -25,12 +26,14 @@ function SignIn() {
 	} = useForm<SignInInputs>({resolver: yupResolver(schema)});
 
 	const handleLogin = (data: SignInInputs) => {
-		if (data.email && data.password) {
+		const response: string | void = signin(data.email, data.password);
 
-			setUser("teste");
-
+		if (typeof response === "string") {
+			setStatusEmail(response);
+		} else {
 			navigate("/home");
 		}
+		
 	};
 
 	return (
@@ -57,6 +60,8 @@ function SignIn() {
 						/>
 						<span className='text-danger error'>{errors?.password?.message}</span>
 						<Button text="Enter" />
+						{statusEmail &&
+							<div className="alert alert-danger" role="alert">{statusEmail}</div>}
 						<label className="text-center">
 							<Link 
 								className="font-weight-bold" 
