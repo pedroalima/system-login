@@ -2,7 +2,6 @@ import "./App.scss";
 
 import { PrivateProps } from "./types/Context";
 
-import Root from "./routes/Root";
 import SignIn from "./routes/SignIn";
 import SignUp from "./routes/SignUp";
 import Home from "./routes/Home";
@@ -13,15 +12,19 @@ import { useAuth } from "./hook/useAuth";
 
 const Private = ({ Item }: PrivateProps) => {
 	const { signed } = useAuth();
-
-	return signed === true ? <Item /> : <SignIn />;
+	console.log(signed);
+	if (typeof signed === "number") {
+		return signed > 0 ? <Item /> : <SignIn />;
+	} else {
+		return signed === false ? <Item /> : <SignIn />;
+	}
 };
 
 function App() {
 	return (
 		<AuthProvider>
 			<RouterProvider router={createBrowserRouter(createRoutesFromElements(
-				<Route path="/" element={ <Root /> }>
+				<Route>
 					<Route path="/home" element={ <Private Item={Home} />} />
 					<Route path="/" element={ <SignIn /> } />
 					<Route path="/signup" element={ <SignUp /> } />

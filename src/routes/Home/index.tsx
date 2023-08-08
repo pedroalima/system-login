@@ -5,10 +5,10 @@ import Button from "../../components/Button";
 
 function Home() {
 	const navigate = useNavigate();
-	const { setUser } = useAuth();
+	const { logout } = useAuth();
 
 	const handleLogout = () => {
-		setUser({});
+		logout();
 		navigate("/");
 	};
 	
