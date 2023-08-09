@@ -5,7 +5,7 @@ import { AuthContextProps, AuthContextData, User } from "../types/Context";
 export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider = ({ children } : AuthContextProps) => {
-	const [ user, setUser ] = useState<object | null>({});
+	const [ user, setUser ] = useState<object | null | undefined>();
 
 	useEffect(() => {
 		const jsonToken = localStorage.getItem("user_token");
@@ -23,8 +23,6 @@ export const AuthProvider = ({ children } : AuthContextProps) => {
 		}
 	
 	}, []);
-
-	console.log(user);
 
 	const signin = (email: string, password: string) => {
 		const jsonUserStorage = localStorage.getItem("user");
