@@ -31,7 +31,7 @@ function SignIn() {
 		if (typeof response === "string") {
 			setStatusEmail(response);
 		} else {
-			navigate("/home");
+			navigate("/");
 		}
 		
 	};

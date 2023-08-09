@@ -22,10 +22,9 @@ function App() {
 		<AuthProvider>
 			<RouterProvider router={createBrowserRouter(createRoutesFromElements(
 				<Route>
-					<Route path="/home" element={ <Private Item={Home} />} />
-					<Route path="/" element={ <SignIn /> } />
-					<Route path="/signup" element={ <SignUp /> } />
+					<Route path="/" element={ <Private Item={Home} />} />
 					<Route path="*" element={ <SignIn /> } />
+					<Route path="/signup" element={ <SignUp /> } />
 				</Route>
 			))} />
 		</AuthProvider>
