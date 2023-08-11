@@ -1,6 +1,6 @@
 # System Login
 
- Um projeto que simula um sistema de login, baseado em três páginas, uma para cadastrar o usuário, uma para entrar na conta e outra que representa o aplicativo alvo, que utilizaria esse sistema. Os usuário podem cadastrar uma conta, passando por um sistema de validação exigente e entrar na conta.
+Um projeto que simula um sistema de login, baseado em três páginas, uma para entrar na conta, uma para cadastrar o usuário e outra que representa o aplicativo alvo, que utilizaria esse sistema. Os usuário podem cadastrar uma conta, passando por um sistema de validação exigente e entrar na conta.
 
 Um projeto de autoria própria, com desing e features inspirados em outras aplicações já existentes. Desenvolvido com TypeScript, React e Bootstrap. Este foi o meu resultado: 💻<https://system-login-chi.vercel.app/>.
 
@@ -47,7 +47,6 @@ Os usuários devem ser capazes de:
 
 > - TypeScript
 > - React Context API
-> - Validation
 > - Regex
 
 Por se tratar de um sitema de campos de formulário o projeto tem a finalidade de consolidar meu conhecimento de validação, o desafio foi realizar tudo isso nas redeas do TypeScript, incorporando o React Context API e expressões regulares (Regex), para um resultado mais exigente.
@@ -134,6 +133,8 @@ O React Hook Forms é uma ferramenta indispensável para a validação de formul
 ## 💻 Rodando o projeto
 
 Para conferir a versão final é só acessar o link: 💻<https://system-login-chi.vercel.app/>.
+
+![#](./public/signup.gif) ![#](./public/signup-already.gif)
 
 </br>
 
