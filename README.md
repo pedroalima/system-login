@@ -84,7 +84,7 @@ export const AuthProvider = ({ children } : AuthContextProps) => {
 ...
 ```
 
-Imagine que você está construindo um aplicativo React que armazena dados em um componente pai. Neste aplicativo, você precisa passar esses dados para um componente distante do pai, então, você vai passando os dados por meio de uma relação de componentes pai e filho por Props até chegar no componente desejado, isso se chama Prop drill. Em projetos pequenos é valido utilizar essa tecnica, contudo em projes maiores é insustentavel, para resolver esse problema o React tem o recurso do Context API. Acima vemos uma representação de um contexto, que poderá ser compartilhado com qualquer componente de maneira muito mais rápida.
+Imagine que você está construindo um aplicativo React que armazena dados em um componente pai. Neste aplicativo, você precisa passar esses dados para um componente distante do pai, então, você vai passando os dados por uma relação de componentes pai e filho por Props, até chegar no componente desejado, isso se chama Prop drill. Em projetos pequenos é valido utilizar essa técnica, contudo em projetos maiores é insustentável, para resolver esse problema o React tem o recurso do Context API. Acima vemos uma representação de um contexto, que poderá ser compartilhado com qualquer componente de maneira muito mais rápida.
 
 [saiba mais!](https://www.codecademy.com/resources/docs/react/context)
 
@@ -134,7 +134,7 @@ O React Hook Forms é uma ferramenta indispensável para a validação de formul
 
 Para conferir a versão final é só acessar o link: 💻<https://system-login-chi.vercel.app/>.
 
-![#](./public/signup.gif) ![#](./public/signup-already.gif)
+![#](./public/signup.gif) ![#](./public/signup-already.gif) ![#](./public/mobile%20(3).png)
 
 </br>
 
